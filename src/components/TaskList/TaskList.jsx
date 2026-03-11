@@ -12,9 +12,9 @@ import {
 
 class TaskList extends Component {
   static tasks = [
-    { id: 1, text: "Task-1" },
-    { id: 2, text: "Task-2" },
-    { id: 3, text: "Task-3" },
+    { id: 1, text: "task-1" },
+    { id: 2, text: "task-2" },
+    { id: 3, text: "task-3" },
   ];
 
   constructor(props) {
@@ -42,10 +42,10 @@ class TaskList extends Component {
   render() {
     return (
       <Container>
-        <Title>Список завдань</Title>
+        <Title>список завдань</Title>
         <InputContainer>
-          <Input ref={this.inputRef} placeholder="Нове завдання" />
-          <AddButton onClick={this.addTask}>Додати</AddButton>
+          <Input ref={this.inputRef} placeholder="нове завдання" />
+          <AddButton onClick={this.addTask}>додати</AddButton>
         </InputContainer>
 
         <TaskListUL>
@@ -53,7 +53,7 @@ class TaskList extends Component {
             <TaskItem key={task.id}>
               {task.text}
               <DeleteButton onClick={() => this.deleteTask(task.id)}>
-                Видалити
+                видалити
               </DeleteButton>
             </TaskItem>
           ))}
