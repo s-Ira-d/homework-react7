@@ -24,14 +24,19 @@ class TaskList extends Component {
 
   addTask = () => {
     const text = this.inputRef.current.value.trim();
-    if (text) {
-      const newId = TaskList.tasks.length
-        ? TaskList.tasks[TaskList.tasks.length - 1].id + 1
-        : 1;
-      TaskList.tasks.push({ id: newId, text });
-      this.inputRef.current.value = "";
-      this.forceUpdate();
+    if (!text) return;
+
+    let newId;
+    if (TaskList.tasks.length > 0) {
+      const lastTask = TaskList.tasks[TaskList.tasks.length - 1];
+      newId = lastTask.id + 1;
+    } else {
+      newId = 1;
     }
+
+    TaskList.tasks.push({ id: newId, text });
+    this.inputRef.current.value = "";
+    this.forceUpdate();
   };
 
   deleteTask = (id) => {
