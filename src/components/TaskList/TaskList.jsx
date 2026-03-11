@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
   Container,
+  Title,
   InputContainer,
   Input,
   AddButton,
@@ -11,9 +12,9 @@ import {
 
 class TaskList extends Component {
   static tasks = [
-    { id: 1, text: "Прибрати кімнату" },
-    { id: 2, text: "Купити продукти" },
-    { id: 3, text: "Прочитати книгу" },
+    { id: 1, text: "Task-1" },
+    { id: 2, text: "Task-2" },
+    { id: 3, text: "Task-3" },
   ];
 
   constructor(props) {
@@ -41,6 +42,7 @@ class TaskList extends Component {
   render() {
     return (
       <Container>
+        <Title>Список завдань</Title>
         <InputContainer>
           <Input ref={this.inputRef} placeholder="Нове завдання" />
           <AddButton onClick={this.addTask}>Додати</AddButton>

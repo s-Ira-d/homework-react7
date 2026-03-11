@@ -1,36 +1,55 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 400px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
+  max-width: 450px;
+  margin: 50px auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffe6f0;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+`;
+
+export const Title = styled.h1`
+  text-align: center;
+  color: #ff4da6;
+  margin-bottom: 30px;
+  font-size: 2em;
 `;
 
 export const InputContainer = styled.div`
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 `;
 
 export const Input = styled.input`
   flex: 1;
-  padding: 8px;
+  padding: 12px;
   font-size: 16px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  border-radius: 10px;
+  border: 2px solid #ffc0da;
+  background: #fff0f5;
+  transition: border-color 0.3s;
+
+  &:focus {
+    outline: none;
+    border-color: #ff66b2;
+  }
 `;
 
 export const AddButton = styled.button`
-  padding: 8px 12px;
+  padding: 12px 16px;
   font-size: 16px;
-  margin-left: 8px;
+  margin-left: 10px;
   cursor: pointer;
-  background-color: #4caf50;
+  background: #ff66b2;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
+  transition: background 0.3s;
 
   &:hover {
-    opacity: 0.9;
+    background: #ff3399;
   }
 `;
 
@@ -42,21 +61,24 @@ export const TaskListUL = styled.ul`
 export const TaskItem = styled.li`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
-  padding: 8px;
-  background-color: #f4f4f4;
-  border-radius: 4px;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 12px 15px;
+  background-color: #ffe0f2;
+  border-left: 5px solid #ff4da6;
+  border-radius: 10px;
 `;
 
 export const DeleteButton = styled.button`
-  background-color: #f44336;
+  background: #ff3399;
   color: white;
   border: none;
-  padding: 4px 8px;
+  padding: 6px 12px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 8px;
+  transition: background 0.3s;
 
   &:hover {
-    opacity: 0.8;
+    background: #ff1a75;
   }
 `;
