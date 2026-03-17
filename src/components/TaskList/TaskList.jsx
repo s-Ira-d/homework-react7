@@ -19,37 +19,43 @@ class TaskList extends Component {
 
   constructor(props) {
     super(props);
-    this.inputRef = React.createRef();
+    this.text = "";
   }
 
+  handleChange = (e) => {
+    this.text = e.target.value;
+  };
+
   addTask = () => {
-    const text = this.inputRef.current.value.trim();
-    if (!text) return;
+    if (this.text.trim() === "") return;
 
-    let newId;
-    if (TaskList.tasks.length > 0) {
-      const lastTask = TaskList.tasks[TaskList.tasks.length - 1];
-      newId = lastTask.id + 1;
-    } else {
-      newId = 1;
-    }
+    let newId = TaskList.tasks.length + 1;
 
-    TaskList.tasks.push({ id: newId, text });
-    this.inputRef.current.value = "";
-    this.forceUpdate();
+    TaskList.tasks.push({
+      id: newId,
+      text: this.text,
+    });
+
+    this.text = "";
+    this.setState({});
   };
 
   deleteTask = (id) => {
     TaskList.tasks = TaskList.tasks.filter((task) => task.id !== id);
-    this.forceUpdate();
+    this.setState({});
   };
 
   render() {
     return (
       <Container>
         <Title>список завдань</Title>
+
         <InputContainer>
-          <Input ref={this.inputRef} placeholder="нове завдання" />
+          <Input
+            value={this.text || ""}
+            onChange={(e) => ((this.text = e.target.value), this.setState({}))}
+            placeholder="нове завдання"
+          />
           <AddButton onClick={this.addTask}>додати</AddButton>
         </InputContainer>
 
